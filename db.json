@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "martha",
+      "postsIdArr": ["100"],
+      "commentsIdArr": []
+    },
+    {
+      "id": "2",
+      "username": "ajay",
+      "postsIdArr": ["101", "102"],
+      "commentsIdArr": []
+    },
+    {
+      "id": "3",
+      "username": "michael",
+      "postsIdArr": [],
+      "commentsIdArr": ["1000", "1001"]
+    },
+    {
+      "id": "4",
+      "username": "damon",
+      "postsIdArr": [],
+      "commentsIdArr": []
+    },
+    {
+      "id": "5",
+      "username": "larry",
+      "postsIdArr": [],
+      "commentsIdArr": []
+    }
+  ],
+  "posts": [
+    {
+      "id": "100",
+      "userId": "1",
+      "post": "I love Nepal",
+      "timestamp": "2025-01-22T12:00:57.223Z",
+      "commentsIdArr": ["1000", "1001"]
+    },
+    {
+      "id": "101",
+      "userId": "2",
+      "post": "I Love Nepalese Food",
+      "timestamp": "2025-01-22T12:00:38.427Z",
+      "commentsIdArr": []
+    },
+    {
+      "id": "102",
+      "userId": "2",
+      "post": "I work in Nepal.",
+      "timestamp": "2025-01-22T11:59:11.126Z",
+      "commentsIdArr": []
+    }
+  ],
+  "comments": [
+    {
+      "id": "1000",
+      "userId": "3",
+      "comment": "I love Nepal too.",
+      "timestamp": "2025-01-22T12:00:57.223Z",
+      "replies": []
+    },
+    {
+      "id": "1001",
+      "userId": "3",
+      "comment": "I love Nepal, and therefore one day I will surely visit",
+      "timestamp": "2025-01-22T12:02:03.075Z",
+      "replies": [
+        {
+          "userId": "4",
+          "content": "I am also thinking to visit Nepal.",
+          "timestamp": "2025-01-22T12:02:31.714Z"
+        },
+        {
+          "userId": "5",
+          "content": "I also want to go to Nepal may be we can go together.",
+          "timestamp": "2025-01-22T12:02:41.758Z"
+        }
+      ]
+    }
+  ]
+}
