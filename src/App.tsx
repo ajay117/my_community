@@ -5,6 +5,7 @@ import { v4 as uuid4 } from "uuid";
 import { saveUserPost } from "./services/service";
 import { UserData } from "./types/types";
 import { PostStatus } from "./components/PostStatus";
+import { NewsFeed } from "./components/NewsFeed";
 
 function App() {
   const [user, setUser] = useState<UserData>({
@@ -45,7 +46,7 @@ function App() {
         console.error("Error occurred while saving user's post :", error);
       });
   };
-  
+
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPost(event.target.value);
   };
@@ -54,6 +55,7 @@ function App() {
     <>
       <h1>My Community App</h1>
       <PostStatus handleSubmit={handleSubmit} handleChange={handleChange} />
+      <NewsFeed />
     </>
   );
 }
