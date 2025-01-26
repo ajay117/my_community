@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.scss";
-import { UserData } from "./types/types";
+import { UserData, UserPost as UserPostInterface } from "./types/types";
 import { PostStatus } from "./components/PostStatus";
 import { NewsFeed } from "./components/NewsFeed";
 import { AppContext } from "./AppContext";
+import { getAllPosts } from "./services/service";
 
 function App() {
   const [user, setUser] = useState<UserData>({
@@ -12,16 +13,30 @@ function App() {
     postsIdArr: ["100", "4196f4d4-8f67-44d1-a5c7-f2ee586e2735"],
     commentsIdArr: [],
   });
+  const [posts, setPosts] = useState<UserPostInterface[]>([]);
+
+  useEffect(() => {
+    getAllPosts().then((response) => {
+      if (response) {
+        setPosts(response);
+      }
+    });
+  }, []);
 
   const updateUserData = (userData: UserData) => {
     setUser(userData);
   };
 
+  const updatePosts = (post: UserPostInterface) => {
+    setPosts((oldUserPosts) => [...oldUserPosts, post]);
+  };
+
+  console.log({ posts });
   return (
     <AppContext.Provider value={{ user, updateUserData }}>
       <h1>My Community App</h1>
-      <PostStatus />
-      <NewsFeed />
+      <PostStatus updatePosts={updatePosts} />
+      <NewsFeed posts={posts} />
     </AppContext.Provider>
   );
 }

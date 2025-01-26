@@ -2,8 +2,13 @@ import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
 import { saveUserPost } from "../services/service";
 import { v4 as uuid4 } from "uuid";
+import { UserPost } from "../types/types";
 
-export const PostStatus = () => {
+interface PostStatusProp {
+  updatePosts: (post: UserPost) => void;
+}
+
+export const PostStatus = ({ updatePosts }: PostStatusProp) => {
   const context = useContext(AppContext);
 
   if (!context) {
@@ -23,14 +28,13 @@ export const PostStatus = () => {
       timestamp: new Date().toISOString(),
       commentsIdArr: [],
     };
+    setPost("");
 
     // The post should be saved in the "Posts" collection.
     // And also the user collection's "postsIdArr" should be updated with the new saved posts id.
-
     saveUserPost(newPost)
       .then(({ post, updatedUser }) => {
-        console.log("Saved Post:", post);
-        console.log("Updated User:", updatedUser);
+        updatePosts(post);
         if (updatedUser) {
           updateUserData(updatedUser);
         }
@@ -47,7 +51,12 @@ export const PostStatus = () => {
     <>
       <p>Write a Post</p>
       <form onSubmit={handleSubmit}>
-        <textarea onChange={handleChange} rows={4} cols={30}></textarea>
+        <textarea
+          onChange={handleChange}
+          rows={4}
+          cols={30}
+          value={post}
+        ></textarea>
         <button>Post</button>
       </form>
     </>
