@@ -6,7 +6,9 @@
       "postsIdArr": [
         "100",
         "72e9e244-23ba-47f3-ba0d-8f5dc32ea1cc",
-        "5d006d92-54c5-4fd6-85bd-c3b82106bcd7"
+        "5d006d92-54c5-4fd6-85bd-c3b82106bcd7",
+        "9beac7a3-3171-4da5-bb11-347260c0b39e",
+        "8f036ede-b9c8-45e0-9137-95046463d75c"
       ],
       "commentsIdArr": []
     },
@@ -78,6 +80,20 @@
       "userId": "1",
       "post": "Hello hello",
       "timestamp": "2025-01-25T08:01:38.972Z",
+      "commentsIdArr": []
+    },
+    {
+      "id": "9beac7a3-3171-4da5-bb11-347260c0b39e",
+      "userId": "1",
+      "post": "hhhhhhhhh",
+      "timestamp": "2025-01-26T07:16:34.304Z",
+      "commentsIdArr": []
+    },
+    {
+      "id": "8f036ede-b9c8-45e0-9137-95046463d75c",
+      "userId": "1",
+      "post": "hi I am ajay\n",
+      "timestamp": "2025-01-26T07:16:49.855Z",
       "commentsIdArr": []
     }
   ],
