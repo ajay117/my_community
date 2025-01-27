@@ -1,5 +1,6 @@
 import axios from "axios";
-import { Comment, NewComment } from "../types/types";
+// import { Comment, NewComment } from "../types/types";
+import { Comment, NewComment } from "../types/CommentType";
 
 const baseUrl = "http://localhost:3000";
 const headers = {

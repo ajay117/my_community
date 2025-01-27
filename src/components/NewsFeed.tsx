@@ -1,7 +1,6 @@
 // import { useEffect, useState } from "react";
 import { UserPost } from "./UserPost";
-import { UserPost as UserPostInterface } from "../types/types";
-// import { getAllPosts } from "../services/service";
+import { UserPost as UserPostInterface } from "../types/PostType";
 
 export const NewsFeed = ({ posts }: { posts: UserPostInterface[] }) => {
   const renderPosts = posts.map((post) => (

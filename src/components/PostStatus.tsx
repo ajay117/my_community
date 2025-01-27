@@ -2,10 +2,10 @@ import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
 import {
   getUserData,
-  saveUserPost,
   updateUserData as updateUserDataService,
-} from "../services/service";
-import { UserPost } from "../types/types";
+} from "../services/UserService";
+import { saveUserPost } from "../services/PostService";
+import { UserPost } from "../types/PostType";
 
 interface PostStatusProp {
   updatePosts: (post: UserPost) => void;

@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { format } from "date-fns";
-import { UserData, UserPost as UserPostInterface } from "../types/types";
-import { getUserData, updateUserData } from "../services/service";
+import { UserPost as UserPostInterface } from "../types/PostType";
+import { UserData } from "../types/UserType";
+import { getUserData, updateUserData } from "../services/UserService";
 import { CommentBox } from "./CommentBox";
-import { postComment } from "../services/comment";
-import { getUserPostById, updateUserPost } from "../services/postService";
+import { postComment } from "../services/CommentService";
+import { getUserPostById, updateUserPost } from "../services/PostService";
 import { AppContext } from "../AppContext";
 
 interface UserPostProps {
@@ -49,6 +50,7 @@ export const UserPost = ({ postData }: UserPostProps) => {
       replies: [],
     };
 
+    setComment("");
     // - The comment should be sumitted with its required infos in "comment" collection.
     // - The comment Id should be saved in "commentsIdArr" in the respected post.
     // - The comment Id should also be saved in the respected postCreator's "commentsIdArr" in the users collection.

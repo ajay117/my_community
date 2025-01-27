@@ -3,20 +3,33 @@
     {
       "id": "1",
       "username": "martha",
-      "postsIdArr": ["100"],
-      "commentsIdArr": []
+      "postsIdArr": [
+        "100",
+        "44db",
+        "6f43"
+      ],
+      "commentsIdArr": [
+        "22bd",
+        "1159"
+      ]
     },
     {
       "id": "2",
       "username": "ajay",
-      "postsIdArr": ["101", "102"],
+      "postsIdArr": [
+        "101",
+        "102"
+      ],
       "commentsIdArr": []
     },
     {
       "id": "3",
       "username": "michael",
       "postsIdArr": [],
-      "commentsIdArr": ["1000", "1001"]
+      "commentsIdArr": [
+        "1000",
+        "1001"
+      ]
     },
     {
       "id": "4",
@@ -37,7 +50,10 @@
       "userId": "1",
       "post": "I love Nepal",
       "timestamp": "2025-01-22T12:00:57.223Z",
-      "commentsIdArr": ["1000", "1001"]
+      "commentsIdArr": [
+        "1000",
+        "1001"
+      ]
     },
     {
       "id": "101",
@@ -52,6 +68,24 @@
       "post": "I work in Nepal.",
       "timestamp": "2025-01-22T11:59:11.126Z",
       "commentsIdArr": []
+    },
+    {
+      "id": "44db",
+      "userId": "1",
+      "post": "ok\n",
+      "timestamp": "2025-01-27T06:40:02.009Z",
+      "commentsIdArr": [
+        "22bd"
+      ]
+    },
+    {
+      "id": "6f43",
+      "userId": "1",
+      "post": "ttttt",
+      "timestamp": "2025-01-27T06:54:21.159Z",
+      "commentsIdArr": [
+        "1159"
+      ]
     }
   ],
   "comments": [
@@ -79,6 +113,20 @@
           "timestamp": "2025-01-22T12:02:41.758Z"
         }
       ]
+    },
+    {
+      "id": "22bd",
+      "userId": "1",
+      "comment": "ok ok",
+      "timestamp": "2025-01-27T06:40:25.779Z",
+      "replies": []
+    },
+    {
+      "id": "1159",
+      "userId": "1",
+      "comment": "aaaaa",
+      "timestamp": "2025-01-27T06:54:27.886Z",
+      "replies": []
     }
   ]
 }

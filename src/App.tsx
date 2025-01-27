@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import "./App.scss";
-import { UserData, UserPost as UserPostInterface } from "./types/types";
+import { UserData } from "./types/UserType";
+import { UserPost as UserPostInterface } from "./types/PostType";
 import { PostStatus } from "./components/PostStatus";
 import { NewsFeed } from "./components/NewsFeed";
 import { AppContext } from "./AppContext";
-import { getAllPosts } from "./services/service";
+import { getAllPosts } from "./services/PostService";
 
 function App() {
   const [user, setUser] = useState<UserData>({

@@ -20,25 +20,3 @@ export interface UserPost {
   timestamp: string;
   commentsIdArr: string[];
 }
-
-export interface UserData {
-  id: string;
-  username: string;
-  postsIdArr: string[];
-  commentsIdArr: string[];
-}
-
-export interface Comment {
-  id: string;
-  userId: string;
-  comment: string;
-  timestamp: string;
-  replies: string[];
-}
-
-export interface NewComment {
-  userId: string;
-  comment: string;
-  timestamp: string;
-  replies: string[];
-}
