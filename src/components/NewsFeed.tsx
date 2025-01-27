@@ -4,7 +4,9 @@ import { UserPost as UserPostInterface } from "../types/types";
 // import { getAllPosts } from "../services/service";
 
 export const NewsFeed = ({ posts }: { posts: UserPostInterface[] }) => {
-  const renderPosts = posts.map((post) => <UserPost postData={post} />);
+  const renderPosts = posts.map((post) => (
+    <UserPost key={post.id} postData={post} />
+  ));
 
   return (
     <>
