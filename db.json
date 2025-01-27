@@ -5,12 +5,10 @@
       "username": "martha",
       "postsIdArr": [
         "100",
-        "44db",
-        "6f43"
+        "4196f4d4-8f67-44d1-a5c7-f2ee586e2735"
       ],
       "commentsIdArr": [
-        "22bd",
-        "1159"
+        "7045"
       ]
     },
     {
@@ -48,7 +46,7 @@
     {
       "id": "100",
       "userId": "1",
-      "post": "I love Nepal",
+      "post": "I love traveling to the mountains of Nepal.",
       "timestamp": "2025-01-22T12:00:57.223Z",
       "commentsIdArr": [
         "1000",
@@ -58,21 +56,23 @@
     {
       "id": "101",
       "userId": "2",
-      "post": "I Love Nepalese Food",
+      "post": "Nepalese cuisine is amazing—momos are my favorite!",
       "timestamp": "2025-01-22T12:00:38.427Z",
-      "commentsIdArr": []
+      "commentsIdArr": [
+        "7045"
+      ]
     },
     {
       "id": "102",
       "userId": "2",
-      "post": "I work in Nepal.",
+      "post": "I recently started working on an exciting project in Kathmandu.",
       "timestamp": "2025-01-22T11:59:11.126Z",
       "commentsIdArr": []
     },
     {
       "id": "44db",
       "userId": "1",
-      "post": "ok\n",
+      "post": "The sunrise view from the hills is breathtaking.",
       "timestamp": "2025-01-27T06:40:02.009Z",
       "commentsIdArr": [
         "22bd"
@@ -81,7 +81,7 @@
     {
       "id": "6f43",
       "userId": "1",
-      "post": "ttttt",
+      "post": "Learning new cultures is always fascinating.",
       "timestamp": "2025-01-27T06:54:21.159Z",
       "commentsIdArr": [
         "1159"
@@ -92,24 +92,24 @@
     {
       "id": "1000",
       "userId": "3",
-      "comment": "I love Nepal too.",
+      "comment": "Nepal is truly a dream destination.",
       "timestamp": "2025-01-22T12:00:57.223Z",
       "replies": []
     },
     {
       "id": "1001",
       "userId": "3",
-      "comment": "I love Nepal, and therefore one day I will surely visit",
+      "comment": "I plan to visit Nepal next year to explore its beauty.",
       "timestamp": "2025-01-22T12:02:03.075Z",
       "replies": [
         {
           "userId": "4",
-          "content": "I am also thinking to visit Nepal.",
+          "content": "That sounds amazing! I’d love to join you.",
           "timestamp": "2025-01-22T12:02:31.714Z"
         },
         {
           "userId": "5",
-          "content": "I also want to go to Nepal may be we can go together.",
+          "content": "Let’s plan a trip together! Nepal is on my bucket list too.",
           "timestamp": "2025-01-22T12:02:41.758Z"
         }
       ]
@@ -117,15 +117,22 @@
     {
       "id": "22bd",
       "userId": "1",
-      "comment": "ok ok",
+      "comment": "Thank you for the suggestion!",
       "timestamp": "2025-01-27T06:40:25.779Z",
       "replies": []
     },
     {
       "id": "1159",
       "userId": "1",
-      "comment": "aaaaa",
+      "comment": "Absolutely agree!",
       "timestamp": "2025-01-27T06:54:27.886Z",
+      "replies": []
+    },
+    {
+      "id": "7045",
+      "userId": "1",
+      "comment": "",
+      "timestamp": "2025-01-27T15:57:42.409Z",
       "replies": []
     }
   ]
