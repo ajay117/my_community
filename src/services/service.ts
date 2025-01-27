@@ -1,5 +1,5 @@
 import axios from "axios";
-import { NewPostData, UserData, UserPost } from "../types/types";
+import { NewPostData, PostData, UserData, UserPost } from "../types/types";
 
 const baseUrl = "http://localhost:3000";
 const headers = {
@@ -43,7 +43,7 @@ export const getUserData = async (id: string): Promise<UserData | null> => {
 export const saveUserPost = async (postData: NewPostData) => {
   try {
     // Save the post to the database
-    const { data: savedPost } = await axios.post<NewPostData>(
+    const { data: savedPost } = await axios.post<PostData>(
       `${baseUrl}/posts`,
       postData,
       { headers }

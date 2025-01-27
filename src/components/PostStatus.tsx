@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
 import { saveUserPost } from "../services/service";
-import { v4 as uuid4 } from "uuid";
 import { UserPost } from "../types/types";
 
 interface PostStatusProp {
@@ -22,7 +21,6 @@ export const PostStatus = ({ updatePosts }: PostStatusProp) => {
     event.preventDefault();
 
     const newPost = {
-      id: uuid4(),
       userId: user.id,
       post: post,
       timestamp: new Date().toISOString(),
