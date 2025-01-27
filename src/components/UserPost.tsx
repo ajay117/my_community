@@ -7,6 +7,7 @@ import { CommentBox } from "./CommentBox";
 import { postComment } from "../services/CommentService";
 import { getUserPostById, updateUserPost } from "../services/PostService";
 import { AppContext } from "../AppContext";
+import { Comment } from "./Comment";
 
 interface UserPostProps {
   postData: UserPostInterface;
@@ -18,12 +19,14 @@ export const UserPost = ({ postData }: UserPostProps) => {
   const postDate = format(timestamp, "dd LLL yyyy ");
   const postTime = format(timestamp, "hh ':' mm aa");
   const [comment, setComment] = useState("");
+  const [showComments, setShowComments] = useState(false);
   const context = useContext(AppContext);
+  console.log({ postData });
 
   if (!context) {
     throw new Error("AppContext must be used within its provider");
   }
-  const { user: loggedInUserData } = context;
+  const { user: loggedInUserData, updatePosts } = context;
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -56,9 +59,12 @@ export const UserPost = ({ postData }: UserPostProps) => {
     // - The comment Id should also be saved in the respected postCreator's "commentsIdArr" in the users collection.
 
     const savedComment = await postComment(newComment);
+
     const commentedpost = await getUserPostById(postId);
     commentedpost.commentsIdArr.push(savedComment.id);
-    await updateUserPost(commentedpost.id, commentedpost);
+    const updatedPost = await updateUserPost(commentedpost.id, commentedpost);
+    updatePosts(updatedPost);
+
     const loggedInUserDataCopy = { ...loggedInUserData };
     loggedInUserDataCopy.commentsIdArr.push(savedComment.id);
     updateUserData(loggedInUserData.id, loggedInUserDataCopy);
@@ -68,6 +74,13 @@ export const UserPost = ({ postData }: UserPostProps) => {
     setComment(event.target.value);
   };
 
+  const handleCommentBtnClick = () => {
+    setShowComments(true);
+  };
+
+  const renderComments = postData.commentsIdArr.map((comment) => (
+    <Comment key={comment} commentId={comment} />
+  ));
   return (
     <div style={{ border: "1px solid black" }}>
       <div>
@@ -85,10 +98,17 @@ export const UserPost = ({ postData }: UserPostProps) => {
         <p>{post}</p>
       </div>
 
-      <button style={{ marginBottom: "20px" }}>
-        {commentsIdArr.length}{" "}
-        {commentsIdArr.length === 1 ? "comment" : "comments"}
-      </button>
+      {!showComments && commentsIdArr.length > 0 ? (
+        <button
+          onClick={handleCommentBtnClick}
+          style={{ marginBottom: "20px" }}
+        >
+          {commentsIdArr.length}{" "}
+          {commentsIdArr.length === 1 ? "comment" : "comments"}
+        </button>
+      ) : (
+        <section>{renderComments}</section>
+      )}
 
       <CommentBox
         handleSubmit={handleSubmit}

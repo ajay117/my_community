@@ -20,3 +20,13 @@ export const postComment = async (
     throw error;
   }
 };
+
+export const getCommentById = async (id: string): Promise<Comment> => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/comments/${id}`);
+    return data;
+  } catch (error) {
+    console.error("Error occurred while getting comment by id :", error);
+    throw error;
+  }
+};

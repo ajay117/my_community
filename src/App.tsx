@@ -16,6 +16,8 @@ function App() {
   });
   const [posts, setPosts] = useState<UserPostInterface[]>([]);
 
+  console.log({ posts });
+
   useEffect(() => {
     getAllPosts().then((response) => {
       if (response) {
@@ -29,13 +31,23 @@ function App() {
   };
 
   const updatePosts = (post: UserPostInterface) => {
-    setPosts((oldUserPosts) => [...oldUserPosts, post]);
+    setPosts((oldUserPosts) => {
+      const postExists = oldUserPosts.some(
+        (olderPost) => olderPost.id === post.id
+      );
+      if (postExists) {
+        return oldUserPosts.map((olderPost) =>
+          olderPost.id === post.id ? post : olderPost
+        );
+      }
+      return [...oldUserPosts, post];
+    });
   };
 
   return (
-    <AppContext.Provider value={{ user, updateUserData }}>
+    <AppContext.Provider value={{ user, updateUserData, updatePosts }}>
       <h1>My Community App</h1>
-      <PostStatus updatePosts={updatePosts} />
+      <PostStatus />
       <NewsFeed posts={posts} />
     </AppContext.Provider>
   );

@@ -7,18 +7,14 @@ import {
 import { saveUserPost } from "../services/PostService";
 import { UserPost } from "../types/PostType";
 
-interface PostStatusProp {
-  updatePosts: (post: UserPost) => void;
-}
-
-export const PostStatus = ({ updatePosts }: PostStatusProp) => {
+export const PostStatus = () => {
   const context = useContext(AppContext);
 
   if (!context) {
     throw new Error("User context is not provided");
   }
 
-  const { user, updateUserData } = context;
+  const { user, updateUserData, updatePosts } = context;
   const [post, setPost] = useState("");
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
@@ -35,6 +31,7 @@ export const PostStatus = ({ updatePosts }: PostStatusProp) => {
     // The post should be saved in the "Posts" collection.
     // And also the user collection's "postsIdArr" should be updated with the new saved posts id.
     const savedPost = await saveUserPost(newPost);
+    console.log({ savedPost });
     updatePosts(savedPost);
 
     //  Fetch the user data
