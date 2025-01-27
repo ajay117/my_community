@@ -1,6 +1,10 @@
 import { useContext, useState } from "react";
 import { AppContext } from "../AppContext";
-import { saveUserPost } from "../services/service";
+import {
+  getUserData,
+  saveUserPost,
+  updateUserData as updateUserDataService,
+} from "../services/service";
 import { UserPost } from "../types/types";
 
 interface PostStatusProp {
@@ -17,7 +21,7 @@ export const PostStatus = ({ updatePosts }: PostStatusProp) => {
   const { user, updateUserData } = context;
   const [post, setPost] = useState("");
 
-  const handleSubmit = (event: React.SyntheticEvent) => {
+  const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
     const newPost = {
@@ -30,16 +34,21 @@ export const PostStatus = ({ updatePosts }: PostStatusProp) => {
 
     // The post should be saved in the "Posts" collection.
     // And also the user collection's "postsIdArr" should be updated with the new saved posts id.
-    saveUserPost(newPost)
-      .then(({ post, updatedUser }) => {
-        updatePosts(post);
-        if (updatedUser) {
-          updateUserData(updatedUser);
-        }
-      })
-      .catch((error) => {
-        console.error("Error occurred while saving user's post :", error);
-      });
+    const savedPost = await saveUserPost(newPost);
+    updatePosts(savedPost);
+
+    //  Fetch the user data
+    const userData = await getUserData(newPost.userId);
+    if (!userData) throw new Error("User data not found!");
+
+    //     // Update the user's posts array
+    userData.postsIdArr = userData.postsIdArr || [];
+    userData.postsIdArr.push(savedPost.id);
+    const updatedUserData = await updateUserDataService(userData.id, userData);
+
+    if (updatedUserData) {
+      updateUserData(updatedUserData);
+    }
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {

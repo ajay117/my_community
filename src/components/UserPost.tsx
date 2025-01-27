@@ -38,7 +38,7 @@ export const UserPost = ({ postData }: UserPostProps) => {
     };
 
     fetchUserData();
-  }, []);
+  }, [userId]);
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -54,12 +54,9 @@ export const UserPost = ({ postData }: UserPostProps) => {
     // - The comment Id should also be saved in the respected postCreator's "commentsIdArr" in the users collection.
 
     const savedComment = await postComment(newComment);
-
     const commentedpost = await getUserPostById(postId);
     commentedpost.commentsIdArr.push(savedComment.id);
-
     await updateUserPost(commentedpost.id, commentedpost);
-
     const loggedInUserDataCopy = { ...loggedInUserData };
     loggedInUserDataCopy.commentsIdArr.push(savedComment.id);
     updateUserData(loggedInUserData.id, loggedInUserDataCopy);
@@ -68,8 +65,6 @@ export const UserPost = ({ postData }: UserPostProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setComment(event.target.value);
   };
-
-  console.log({ postData });
 
   return (
     <div style={{ border: "1px solid black" }}>

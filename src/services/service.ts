@@ -46,23 +46,11 @@ export const saveUserPost = async (postData: NewPostData) => {
     const { data: savedPost } = await axios.post<PostData>(
       `${baseUrl}/posts`,
       postData,
-      { headers }
+      {
+        headers,
+      }
     );
-    console.log("Post saved:", savedPost);
-
-    // Fetch the user data
-    const userData = await getUserData(postData.userId);
-    if (!userData) throw new Error("User data not found!");
-
-    // Update the user's posts array
-    userData.postsIdArr = userData.postsIdArr || [];
-    userData.postsIdArr.push(savedPost.id);
-    const updatedUser = await updateUserData(userData.id, userData);
-
-    console.log("Updated user data:", updatedUser);
-
-    // Return both the saved post and updated user data
-    return { post: savedPost, updatedUser };
+    return savedPost;
   } catch (error) {
     console.error("Error saving user post: ", error);
     throw error; // Rethrow for handling by the caller

@@ -31,7 +31,6 @@ function App() {
     setPosts((oldUserPosts) => [...oldUserPosts, post]);
   };
 
-  console.log({ posts });
   return (
     <AppContext.Provider value={{ user, updateUserData }}>
       <h1>My Community App</h1>
