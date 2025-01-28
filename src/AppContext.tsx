@@ -3,9 +3,9 @@ import { UserData } from "./types/UserType";
 import { UserPost } from "./types/PostType";
 
 interface AppContextType {
-  user: UserData;
+  user: UserData | null;
   updateUserData: (userData: UserData) => void;
   updatePosts: (post: UserPost) => void;
 }
 
-export const AppContext = createContext<AppContextType | undefined>(undefined);
+export const AppContext = createContext<AppContextType | null>(null);
