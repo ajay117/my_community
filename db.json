@@ -3,6 +3,7 @@
     {
       "id": "1",
       "username": "martha",
+      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
       "postsIdArr": [
         "100",
         "4196f4d4-8f67-44d1-a5c7-f2ee586e2735"
@@ -14,6 +15,7 @@
     {
       "id": "2",
       "username": "ajay",
+      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
       "postsIdArr": [
         "101",
         "102"
@@ -23,6 +25,7 @@
     {
       "id": "3",
       "username": "michael",
+      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
       "postsIdArr": [],
       "commentsIdArr": [
         "1000",
@@ -32,12 +35,21 @@
     {
       "id": "4",
       "username": "damon",
+      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
       "postsIdArr": [],
       "commentsIdArr": []
     },
     {
       "id": "5",
       "username": "larry",
+      "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
+      "postsIdArr": [],
+      "commentsIdArr": []
+    },
+    {
+      "id": "781f",
+      "username": "Bikkal",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
       "postsIdArr": [],
       "commentsIdArr": []
     }
