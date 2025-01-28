@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { UserPost, NewPostData, PostData } from "../types/types";
 import { UserPost, NewPostData } from "../types/PostType";
 
 const baseUrl = "http://localhost:3000";

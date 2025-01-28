@@ -21,7 +21,6 @@ export const UserPost = ({ postData }: UserPostProps) => {
   const [comment, setComment] = useState("");
   const [showComments, setShowComments] = useState(false);
   const context = useContext(AppContext);
-  console.log({ postData });
 
   if (!context) {
     throw new Error("AppContext must be used within its provider");

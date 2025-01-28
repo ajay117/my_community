@@ -5,7 +5,6 @@ import {
   updateUserData as updateUserDataService,
 } from "../services/UserService";
 import { saveUserPost } from "../services/PostService";
-import { UserPost } from "../types/PostType";
 
 export const PostStatus = () => {
   const context = useContext(AppContext);

@@ -16,8 +16,6 @@ function App() {
   });
   const [posts, setPosts] = useState<UserPostInterface[]>([]);
 
-  console.log({ posts });
-
   useEffect(() => {
     getAllPosts().then((response) => {
       if (response) {

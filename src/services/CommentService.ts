@@ -7,6 +7,16 @@ const headers = {
   "Content-Type": "application/json",
 };
 
+export const getCommentById = async (id: string): Promise<Comment> => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/comments/${id}`);
+    return data;
+  } catch (error) {
+    console.error("Error occurred while getting comment by id :", error);
+    throw error;
+  }
+};
+
 export const postComment = async (
   commentData: NewComment
 ): Promise<Comment> => {
@@ -21,12 +31,21 @@ export const postComment = async (
   }
 };
 
-export const getCommentById = async (id: string): Promise<Comment> => {
+export const updateComment = async (
+  id: string,
+  changedData: Comment
+): Promise<Comment> => {
   try {
-    const { data } = await axios.get(`${baseUrl}/comments/${id}`);
+    const {data} = await axios.put<Comment>(
+      `${baseUrl}/comments/${id}`,
+      changedData,
+      {
+        headers,
+      }
+    );
     return data;
   } catch (error) {
-    console.error("Error occurred while getting comment by id :", error);
+    console.error("Error occurred while updating comment : ", error);
     throw error;
   }
 };
