@@ -29,8 +29,23 @@ export const getUserData = async (id: string): Promise<UserData | null> => {
 };
 
 // Create a new user
-export const createNewUser = async (newUserData: NewUser) => {
+export const createNewUser = async (
+  newUserData: NewUser
+): Promise<UserData | null> => {
   try {
+    // Check if a user with the same username already exists
+    const existingUsers = await getAllUserData();
+    const userExists = existingUsers?.some(
+      (user) =>
+        user.username.toLowerCase() === newUserData.username.toLowerCase()
+    );
+
+    if (userExists) {
+      console.error("Error: User already exists");
+      return null; // Return null if the user already exists
+    }
+
+    // Proceed to create the new user if it doesn't exist
     const { data } = await axios.post<UserData>(
       `${baseUrl}/users/`,
       newUserData,
@@ -38,7 +53,7 @@ export const createNewUser = async (newUserData: NewUser) => {
     );
     return data;
   } catch (error) {
-    console.error("Error updating user data: ", error);
+    console.error("Error creating new user: ", error);
     return null; // Return null if an error occurs
   }
 };
