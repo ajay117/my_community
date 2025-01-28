@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UserData } from "../types/UserType";
+import { NewUser, UserData } from "../types/UserType";
 
 const baseUrl = "http://localhost:3000";
 const headers = {
@@ -23,7 +23,22 @@ export const getUserData = async (id: string): Promise<UserData | null> => {
     const { data } = await axios.get<UserData>(`${baseUrl}/users/${id}`);
     return data;
   } catch (error) {
-    console.error("Error fetching user data: ", error);
+    console.error("Error creating new user: ", error);
+    return null; // Return null if an error occurs
+  }
+};
+
+// Create a new user
+export const createNewUser = async (newUserData: NewUser) => {
+  try {
+    const { data } = await axios.post<UserData>(
+      `${baseUrl}/users/`,
+      newUserData,
+      { headers }
+    );
+    return data;
+  } catch (error) {
+    console.error("Error updating user data: ", error);
     return null; // Return null if an error occurs
   }
 };
