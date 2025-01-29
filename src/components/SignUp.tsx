@@ -4,6 +4,7 @@ import Button from "@mui/material/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { hashPassword } from "../utilities/utility";
 import { createNewUser } from "../services/UserService";
+import { BrandIntro } from "./BrandIntro";
 
 export const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -46,7 +47,9 @@ export const SignUp = () => {
   };
 
   return (
-    <section>
+    <section className="flex flex-col justify-content-center align-items-center full-height">
+      <BrandIntro />
+
       <form onSubmit={handleSubmit}>
         <TextField
           onChange={handleChangeUsername}

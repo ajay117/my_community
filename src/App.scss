@@ -12,6 +12,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Roboto", serif;
+  height: 100%;
 }
 .container {
   padding: 0 16px;
@@ -38,16 +39,25 @@ body {
   color: red;
   text-align: center;
 }
+.full-height {
+  height: 100vh;
+}
 
 // || Utilities
 .flex {
   display: flex !important;
 }
-.justify-content-center {
-  align-items: center !important;
+.flex-col {
+  flex-direction: column;
 }
 .justify-content-flex-start {
   justify-content: flex-start !important;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.align-items-center {
+  align-items: center;
 }
 .m-0 {
   margin: 0 !important;
@@ -92,6 +102,9 @@ body {
 // || Text
 .text-small {
   font-size: 14px !important;
+}
+.text-md {
+  font-size: 20px;
 }
 .text-secondary {
   color: $color-secondary !important;

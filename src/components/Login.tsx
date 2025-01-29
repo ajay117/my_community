@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AppContext } from "../AppContext";
 import { getAllUserData } from "../services/UserService";
 import { hashPassword } from "../utilities/utility";
+import { BrandIntro } from "./BrandIntro";
 
 export const Login = () => {
   const [username, setUsername] = useState("");
@@ -60,7 +61,9 @@ export const Login = () => {
   };
 
   return (
-    <section>
+    <section className="flex flex-col justify-content-center align-items-center full-height">
+      <BrandIntro />
+
       <form onSubmit={handleSubmit}>
         <TextField
           onChange={handleChangeUsername}
