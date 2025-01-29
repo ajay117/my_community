@@ -35,7 +35,6 @@ export const PostStatus = () => {
     // The post should be saved in the "Posts" collection.
     // And also the user collection's "postsIdArr" should be updated with the new saved posts id.
     const savedPost = await saveUserPost(newPost);
-    console.log({ savedPost });
     updatePosts(savedPost);
 
     //  Fetch the user data

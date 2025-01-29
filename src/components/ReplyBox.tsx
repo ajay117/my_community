@@ -57,7 +57,6 @@ export const ReplyBox = ({ commentId, updateComment }: ReplyBoxProps) => {
         onChange={handleChange}
         fullWidth
         id="outlined-multiline-flexible"
-        // label="Multiline"
         multiline
         maxRows={4}
         value={reply}

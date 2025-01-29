@@ -15,16 +15,10 @@ export const CommentBox = ({
   return (
     <section>
       <form onSubmit={handleSubmit}>
-        {/* <textarea
-          onChange={handleChange}
-          placeholder="Write a comment"
-          value={comment}
-        ></textarea> */}
         <TextField
           onChange={handleChange}
           fullWidth
           id="outlined-multiline-flexible"
-          // label="Multiline"
           multiline
           maxRows={4}
           value={comment}
