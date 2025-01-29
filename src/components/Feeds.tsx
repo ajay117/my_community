@@ -5,9 +5,10 @@ import { PostStatus } from "./PostStatus";
 export const Feeds = ({ posts }: { posts: UserPost[] }) => {
   return (
     <>
-      <h1>My Community App</h1>
-      <PostStatus />
-      <NewsFeed posts={posts} />
+      <div className="container">
+        <PostStatus />
+        <NewsFeed posts={posts} />
+      </div>
     </>
   );
 };

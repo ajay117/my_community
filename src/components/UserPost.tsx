@@ -8,6 +8,8 @@ import { postComment } from "../services/CommentService";
 import { getUserPostById, updateUserPost } from "../services/PostService";
 import { AppContext } from "../AppContext";
 import { Comment } from "./Comment";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 interface UserPostProps {
   postData: UserPostInterface;
@@ -85,15 +87,19 @@ export const UserPost = ({ postData }: UserPostProps) => {
     <Comment key={comment} commentId={comment} />
   ));
   return (
-    <div style={{ border: "1px solid black" }}>
-      <div>
-        <p>{postCreator?.username}</p>
-        <div>
-          <p>Posted</p>
-          <p>
+    <div className="post">
+      <div className="flex gap-1">
+        <Typography className="post-creator" variant="h6" gutterBottom>
+          {postCreator?.username}
+        </Typography>
+
+        <div className="text-secondary fw-500 text-small">
+          <p className="m-0">Posted</p>
+
+          <div className="m-0">
             <span>{postDate}</span>
-            <span>{postTime}</span>
-          </p>
+            <span className="mx-1">{postTime}</span>
+          </div>
         </div>
       </div>
 
@@ -102,15 +108,20 @@ export const UserPost = ({ postData }: UserPostProps) => {
       </div>
 
       {!showComments && commentsIdArr.length > 0 ? (
-        <button
-          onClick={handleCommentBtnClick}
-          style={{ marginBottom: "20px" }}
-        >
-          {commentsIdArr.length}{" "}
-          {commentsIdArr.length === 1 ? "comment" : "comments"}
-        </button>
+        <div className="text-right">
+          <Button
+            sx={{ textDecoration: "underline" }}
+            onClick={handleCommentBtnClick}
+            variant="text"
+          >
+            {commentsIdArr.length}{" "}
+            {commentsIdArr.length === 1 ? "comment" : "comments"}
+          </Button>
+        </div>
       ) : (
-        <section>{renderComments}</section>
+        <section className="ps-2">
+          <div className="comment-container">{renderComments}</div>
+        </section>
       )}
 
       <CommentBox

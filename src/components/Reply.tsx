@@ -1,15 +1,31 @@
+import { useEffect, useState } from "react";
 import { Reply as ReplyType } from "../types/CommentType";
-import { format } from "date-fns";
+import { getUserData } from "../services/UserService";
+import { UserData } from "../types/UserType";
 
 export const Reply = ({ data }: { data: ReplyType }) => {
-  const postDate = format(data.timestamp, "dd LLL yyyy ");
-  const postTime = format(data.timestamp, "hh ':' mm aa");
+  const [repliedUser, setRepliedUser] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    if (!repliedUser) {
+      const fetchUserData = async (userId: string) => {
+        const data = await getUserData(userId);
+        setRepliedUser(data);
+      };
+
+      fetchUserData(data.userId);
+    }
+  }, [data, repliedUser]);
+  console.log({ repliedUser });
+
   return (
     <div>
+      <div className="flex gap-1">
+        <p className="fw-600 mb-0">{repliedUser?.username}</p>
+        <p className="text-secondary text-underline fw-500 mb-0">replied:</p>
+      </div>
+
       <p>{data.content}</p>
-      <p>
-        {postDate} {postTime}
-      </p>
     </div>
   );
 };

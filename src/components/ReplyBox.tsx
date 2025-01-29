@@ -6,18 +6,15 @@ import {
 import { AppContext } from "../AppContext";
 import { v4 as uuid } from "uuid";
 import { Comment } from "../types/CommentType";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 interface ReplyBoxProps {
-  handleClickCancel: () => void;
   commentId: string;
   updateComment: (updatedComment: Comment) => void;
 }
 
-export const ReplyBox = ({
-  handleClickCancel,
-  commentId,
-  updateComment,
-}: ReplyBoxProps) => {
+export const ReplyBox = ({ commentId, updateComment }: ReplyBoxProps) => {
   const [reply, setReply] = useState("");
   const context = useContext(AppContext);
 
@@ -52,20 +49,27 @@ export const ReplyBox = ({
     updateComment(updatedComment);
 
     setReply("");
-    handleClickCancel(); // Close the reply box on submission
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea
+      <TextField
         onChange={handleChange}
+        fullWidth
+        id="outlined-multiline-flexible"
+        // label="Multiline"
+        multiline
+        maxRows={4}
         value={reply}
         placeholder="Write a reply"
-      ></textarea>
-      <button type="submit">Reply</button>
-      <button type="button" onClick={handleClickCancel}>
-        Cancel
-      </button>
+        margin="normal"
+      />
+
+      <div className="text-right">
+        <Button className="mx-1" type="submit" variant="contained">
+          Reply
+        </Button>
+      </div>
     </form>
   );
 };

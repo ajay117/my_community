@@ -9,7 +9,8 @@
         "4196f4d4-8f67-44d1-a5c7-f2ee586e2735"
       ],
       "commentsIdArr": [
-        "d13c"
+        "d13c",
+        "59b8"
       ]
     },
     {
@@ -20,7 +21,10 @@
         "101",
         "102"
       ],
-      "commentsIdArr": []
+      "commentsIdArr": [
+        "9a6c",
+        "6c1b"
+      ]
     },
     {
       "id": "3",
@@ -52,6 +56,13 @@
       "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
       "postsIdArr": [],
       "commentsIdArr": []
+    },
+    {
+      "id": "5ff1",
+      "username": "hari",
+      "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "postsIdArr": [],
+      "commentsIdArr": []
     }
   ],
   "posts": [
@@ -62,7 +73,9 @@
       "timestamp": "2025-01-22T12:00:57.223Z",
       "commentsIdArr": [
         "1000",
-        "1001"
+        "1001",
+        "9a6c",
+        "6c1b"
       ]
     },
     {
@@ -72,7 +85,8 @@
       "timestamp": "2025-01-22T12:00:38.427Z",
       "commentsIdArr": [
         "7045",
-        "d13c"
+        "d13c",
+        "59b8"
       ]
     },
     {
@@ -99,6 +113,13 @@
       "commentsIdArr": [
         "1159"
       ]
+    },
+    {
+      "id": "4c7f",
+      "userId": "2",
+      "post": "I am a adventures",
+      "timestamp": "2025-01-29T03:39:02.316Z",
+      "commentsIdArr": []
     }
   ],
   "comments": [
@@ -107,7 +128,20 @@
       "userId": "3",
       "comment": "Nepal is truly a dream destination.",
       "timestamp": "2025-01-22T12:00:57.223Z",
-      "replies": []
+      "replies": [
+        {
+          "id": "eca33ba5-3ffc-4d2b-a1e3-f40e70703e57",
+          "userId": "2",
+          "content": "Yes it is.",
+          "timestamp": "2025-01-29T06:30:43.965Z"
+        },
+        {
+          "id": "843cfe86-76c5-4339-bb63-56bc7a4db813",
+          "userId": "2",
+          "content": "It is so true.",
+          "timestamp": "2025-01-29T08:11:51.494Z"
+        }
+      ]
     },
     {
       "id": "1001",
@@ -174,6 +208,34 @@
           "userId": "1",
           "content": "Me too...",
           "timestamp": "2025-01-28T06:21:37.255Z"
+        }
+      ]
+    },
+    {
+      "id": "9a6c",
+      "userId": "2",
+      "comment": "May be I will join you.",
+      "timestamp": "2025-01-29T05:29:26.676Z",
+      "replies": []
+    },
+    {
+      "id": "6c1b",
+      "userId": "2",
+      "comment": "Don't forget to inform me",
+      "timestamp": "2025-01-29T05:29:50.998Z",
+      "replies": []
+    },
+    {
+      "id": "59b8",
+      "userId": "1",
+      "comment": "Momos are my favourite too.",
+      "timestamp": "2025-01-29T08:44:01.979Z",
+      "replies": [
+        {
+          "id": "e490e64f-6871-4627-87fd-c30bbeb38317",
+          "userId": "1",
+          "content": "Really!! Let's sometime eat together.",
+          "timestamp": "2025-01-29T08:44:38.036Z"
         }
       ]
     }

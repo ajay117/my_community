@@ -5,6 +5,8 @@ import {
   updateUserData as updateUserDataService,
 } from "../services/UserService";
 import { saveUserPost } from "../services/PostService";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 export const PostStatus = () => {
   const context = useContext(AppContext);
@@ -19,7 +21,7 @@ export const PostStatus = () => {
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
     if (!user) {
-      throw new Error("User is not authenticated"); 
+      throw new Error("User is not authenticated");
     }
 
     const newPost = {
@@ -55,15 +57,29 @@ export const PostStatus = () => {
   };
   return (
     <>
-      <p>Write a Post</p>
-      <form onSubmit={handleSubmit}>
-        <textarea
+      <form onSubmit={handleSubmit} className="my-2">
+        <TextField
+          onChange={handleChange}
+          fullWidth
+          id="outlined-multiline-flexible"
+          label="Write a Post"
+          multiline
+          maxRows={4}
+          value={post}
+          margin="normal"
+        />
+        {/* <textarea
           onChange={handleChange}
           rows={4}
           cols={30}
           value={post}
-        ></textarea>
-        <button>Post</button>
+        ></textarea> */}
+        {/* <button>Post</button> */}
+        <div className="text-right">
+          <Button type="button" variant="contained">
+            Submit Post
+          </Button>
+        </div>
       </form>
     </>
   );
