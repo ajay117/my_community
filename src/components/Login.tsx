@@ -36,7 +36,6 @@ export const Login = () => {
       // Get all users from the JSON database
       const users = await getAllUserData();
 
-
       // Check if a user with the given username and hashed password exists,
       //  only for development purposes
       const user = users?.find(
@@ -87,9 +86,9 @@ export const Login = () => {
         </Button>
       </form>
 
-      {error && <p style={{ color: "red" }}>{error}</p>}
+      {error && <p className="error-msg">{error}</p>}
 
-      <p>
+      <p className="text-center">
         Don't have an account? <Link to="/signup">Sign up</Link>
       </p>
     </section>
