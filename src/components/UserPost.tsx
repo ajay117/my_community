@@ -83,9 +83,11 @@ export const UserPost = ({ postData }: UserPostProps) => {
     setShowComments(true);
   };
 
-  const renderComments = postData.commentsIdArr.map((comment) => (
-    <Comment key={comment} commentId={comment} />
-  ));
+  // console.log({ postData });
+
+  const renderComments = postData.commentsIdArr.map((commentId) => {
+    return <Comment key={commentId} commentId={commentId} />;
+  });
   return (
     <div className="post">
       <div className="flex gap-1">

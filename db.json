@@ -4,37 +4,22 @@
       "id": "1",
       "username": "martha",
       "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
-      "postsIdArr": [
-        "100",
-        "4196f4d4-8f67-44d1-a5c7-f2ee586e2735"
-      ],
-      "commentsIdArr": [
-        "d13c",
-        "59b8"
-      ]
+      "postsIdArr": ["100", "4196f4d4-8f67-44d1-a5c7-f2ee586e2735"],
+      "commentsIdArr": ["d13c", "59b8"]
     },
     {
       "id": "2",
       "username": "ajay",
       "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
-      "postsIdArr": [
-        "101",
-        "102"
-      ],
-      "commentsIdArr": [
-        "9a6c",
-        "6c1b"
-      ]
+      "postsIdArr": ["101", "102"],
+      "commentsIdArr": ["9a6c", "6c1b"]
     },
     {
       "id": "3",
       "username": "michael",
       "password": "f6e0a1e2ac41945a9aa7ff8a8aaa0cebc12a3bcc981a929ad5cf810a090e11ae",
       "postsIdArr": [],
-      "commentsIdArr": [
-        "1000",
-        "1001"
-      ]
+      "commentsIdArr": ["1000", "1001"]
     },
     {
       "id": "4",
@@ -71,23 +56,14 @@
       "userId": "1",
       "post": "I love traveling to the mountains of Nepal.",
       "timestamp": "2025-01-22T12:00:57.223Z",
-      "commentsIdArr": [
-        "1000",
-        "1001",
-        "9a6c",
-        "6c1b"
-      ]
+      "commentsIdArr": ["1000", "1001", "9a6c", "6c1b"]
     },
     {
       "id": "101",
       "userId": "2",
       "post": "Nepalese cuisine is amazing—momos are my favorite!",
       "timestamp": "2025-01-22T12:00:38.427Z",
-      "commentsIdArr": [
-        "7045",
-        "d13c",
-        "59b8"
-      ]
+      "commentsIdArr": ["7045", "d13c", "59b8"]
     },
     {
       "id": "102",
@@ -101,18 +77,14 @@
       "userId": "1",
       "post": "The sunrise view from the hills is breathtaking.",
       "timestamp": "2025-01-27T06:40:02.009Z",
-      "commentsIdArr": [
-        "22bd"
-      ]
+      "commentsIdArr": ["22bd"]
     },
     {
       "id": "6f43",
       "userId": "1",
       "post": "Learning new cultures is always fascinating.",
       "timestamp": "2025-01-27T06:54:21.159Z",
-      "commentsIdArr": [
-        "1159"
-      ]
+      "commentsIdArr": ["1159"]
     },
     {
       "id": "4c7f",

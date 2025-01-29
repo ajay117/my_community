@@ -41,7 +41,7 @@ export const Comment = ({ commentId }: { commentId: string }) => {
 
       fetchCommentor(comment.userId);
     }
-  }, [comment, commentor, setCommentor]);
+  }, [comment, commentor]);
 
   const toggleRepliesVisibility = () => {
     setIsRepliesVisible(!isRepliesVisible);
@@ -54,6 +54,10 @@ export const Comment = ({ commentId }: { commentId: string }) => {
   const renderReplies = comment?.replies?.map((reply) => (
     <Reply key={reply.id} data={reply} />
   ));
+
+  if (comment) {
+    console.log(commentId, comment.comment);
+  }
 
   return (
     <div>
