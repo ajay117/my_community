@@ -68,7 +68,7 @@ export const PostStatus = () => {
       />
 
       <div className="text-right">
-        <Button type="button" variant="contained">
+        <Button type="submit" variant="contained">
           Submit Post
         </Button>
       </div>
