@@ -1,6 +1,7 @@
 import axios from "axios";
 // import { Comment, NewComment } from "../types/types";
 import { Comment, NewComment } from "../types/CommentType";
+import { UserData } from "../types/UserType";
 
 const baseUrl = "http://localhost:3000";
 const headers = {
@@ -36,7 +37,7 @@ export const updateComment = async (
   changedData: Comment
 ): Promise<Comment> => {
   try {
-    const {data} = await axios.put<Comment>(
+    const { data } = await axios.put<Comment>(
       `${baseUrl}/comments/${id}`,
       changedData,
       {
@@ -46,6 +47,18 @@ export const updateComment = async (
     return data;
   } catch (error) {
     console.error("Error occurred while updating comment : ", error);
+    throw error;
+  }
+};
+
+export const getCommentorByUserID = async (
+  userId: string
+): Promise<UserData> => {
+  try {
+    const { data } = await axios.get(`${baseUrl}/users/${userId}`);
+    return data;
+  } catch (error) {
+    console.error("Error occurred while getting comment by id :", error);
     throw error;
   }
 };
