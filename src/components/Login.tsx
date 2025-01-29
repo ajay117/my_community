@@ -69,6 +69,7 @@ export const Login = () => {
           onChange={handleChangeUsername}
           fullWidth
           id="outlined-basic"
+          data-testid="username"
           label="User Name"
           variant="outlined"
           margin="normal"
@@ -78,6 +79,7 @@ export const Login = () => {
           onChange={handleChangePassword}
           fullWidth
           id="outlined-password-input"
+          data-testid="password"
           label="Password"
           type="password"
           autoComplete="current-password"

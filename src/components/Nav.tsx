@@ -30,7 +30,7 @@ export const Nav = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               My Community
             </Typography>
-            <Button onClick={handleClick} color="inherit">
+            <Button id="logout" onClick={handleClick} color="inherit">
               Logout
             </Button>
           </Toolbar>

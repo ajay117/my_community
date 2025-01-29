@@ -60,6 +60,7 @@ export const PostStatus = () => {
         onChange={handleChange}
         fullWidth
         id="outlined-multiline-flexible"
+        data-testid="textfield-post"
         label="Write a Post"
         multiline
         maxRows={4}

@@ -52,7 +52,7 @@ export const ReplyBox = ({ commentId, updateComment }: ReplyBoxProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="ps-2">
       <TextField
         onChange={handleChange}
         fullWidth
@@ -65,7 +65,12 @@ export const ReplyBox = ({ commentId, updateComment }: ReplyBoxProps) => {
       />
 
       <div className="text-right">
-        <Button className="mx-1" type="submit" variant="contained">
+        <Button
+          typeof="submit"
+          className="mx-1"
+          type="submit"
+          variant="contained"
+        >
           Reply
         </Button>
       </div>
