@@ -29,7 +29,6 @@ Welcome to **My Community**! This is a social web app where users can sign up, l
   - Material UI
   - Axios
   - React Router
-  - Emotion (for styled components)
 
 - **Backend**:
 
@@ -48,7 +47,7 @@ To get started with **My Community**, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/my_community.git
+   git clone https://github.com/ajay117/my_community.git
 
 
 2. Navigate into the project directory:
