@@ -6,9 +6,11 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
+import { useNavigate } from "react-router-dom";
 
 export const Nav = () => {
   const context = useContext(AppContext);
+  const navigate = useNavigate();
 
   if (!context) {
     return <p>Error: User context is not available.</p>; // Fallback UI
@@ -16,7 +18,9 @@ export const Nav = () => {
 
   const { updateUserData } = context;
   const handleClick = () => {
+    localStorage.removeItem("credentials");
     updateUserData(null);
+    navigate("/login");
   };
   return (
     <Box sx={{ flexGrow: 1 }}>

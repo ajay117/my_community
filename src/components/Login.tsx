@@ -36,7 +36,9 @@ export const Login = () => {
       // Get all users from the JSON database
       const users = await getAllUserData();
 
-      // Check if a user with the given username and hashed password exists
+
+      // Check if a user with the given username and hashed password exists,
+      //  only for development purposes
       const user = users?.find(
         (u) =>
           u.username.toLowerCase() === username.toLowerCase() &&
@@ -46,6 +48,7 @@ export const Login = () => {
       if (user) {
         // Successfully authenticated
         updateUserData(user); // Update user data in the context
+        localStorage.setItem("credentials", JSON.stringify(user));
         navigate("/"); // Redirect to the home page
       } else {
         // Authentication failed

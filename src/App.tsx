@@ -18,8 +18,20 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    // Check localStorage on first render
+    const storedUser = localStorage.getItem("credentials");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser)); // Restore user from localStorage
+    }
+  }, []); // Runs only on mount
+
+  useEffect(() => {
+    // Only redirect if BOTH user and localStorage are empty
+    const storedUser = localStorage.getItem("credentials");
+
     if (
       !user &&
+      !storedUser &&
       location.pathname !== "/login" &&
       location.pathname !== "/signup"
     ) {
