@@ -43,8 +43,6 @@ export const Comment = ({ commentId }: { commentId: string }) => {
     }
   }, [comment, commentor, setCommentor]);
 
-  console.log({ comment, commentor });
-
   const toggleRepliesVisibility = () => {
     setIsRepliesVisible(!isRepliesVisible);
   };

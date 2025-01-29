@@ -16,7 +16,6 @@ export const Reply = ({ data }: { data: ReplyType }) => {
       fetchUserData(data.userId);
     }
   }, [data, repliedUser]);
-  console.log({ repliedUser });
 
   return (
     <div>

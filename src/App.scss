@@ -127,3 +127,10 @@ body {
 .text-right {
   text-align: right !important;
 }
+
+@media screen and (min-width: "900px") {
+  .fix-container {
+    width: 70%;
+    margin: 0 auto;
+  }
+}

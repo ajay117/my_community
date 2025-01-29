@@ -56,31 +56,23 @@ export const PostStatus = () => {
     setPost(event.target.value);
   };
   return (
-    <>
-      <form onSubmit={handleSubmit} className="my-2">
-        <TextField
-          onChange={handleChange}
-          fullWidth
-          id="outlined-multiline-flexible"
-          label="Write a Post"
-          multiline
-          maxRows={4}
-          value={post}
-          margin="normal"
-        />
-        {/* <textarea
-          onChange={handleChange}
-          rows={4}
-          cols={30}
-          value={post}
-        ></textarea> */}
-        {/* <button>Post</button> */}
-        <div className="text-right">
-          <Button type="button" variant="contained">
-            Submit Post
-          </Button>
-        </div>
-      </form>
-    </>
+    <form onSubmit={handleSubmit} className="my-2">
+      <TextField
+        onChange={handleChange}
+        fullWidth
+        id="outlined-multiline-flexible"
+        label="Write a Post"
+        multiline
+        maxRows={4}
+        value={post}
+        margin="normal"
+      />
+
+      <div className="text-right">
+        <Button type="button" variant="contained">
+          Submit Post
+        </Button>
+      </div>
+    </form>
   );
 };

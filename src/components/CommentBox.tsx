@@ -34,7 +34,7 @@ export const CommentBox = ({
 
         <div className="text-right">
           <Button type="submit" variant="contained">
-            Submit Post
+            Comment
           </Button>
         </div>
       </form>

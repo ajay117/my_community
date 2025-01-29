@@ -5,7 +5,7 @@ import { PostStatus } from "./PostStatus";
 export const Feeds = ({ posts }: { posts: UserPost[] }) => {
   return (
     <>
-      <div className="container">
+      <div className="container fix-container">
         <PostStatus />
         <NewsFeed posts={posts} />
       </div>

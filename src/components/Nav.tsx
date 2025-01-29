@@ -25,14 +25,16 @@ export const Nav = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            My Community
-          </Typography>
-          <Button onClick={handleClick} color="inherit">
-            Logout
-          </Button>
-        </Toolbar>
+        <section className="fix-container">
+          <Toolbar>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              My Community
+            </Typography>
+            <Button onClick={handleClick} color="inherit">
+              Logout
+            </Button>
+          </Toolbar>
+        </section>
       </AppBar>
     </Box>
   );
