@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "json-server --watch db.json --port 3000",
-    "test": "playwright test",
+    "test": "playwright test --project=chromium",
     "test:report": "playwright show-report"
   },
   "dependencies": {

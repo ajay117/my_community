@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import exp from "constants";
 
 // Important: Since we are not resetting the database state,
 //            therefore please manually restart json-server after test
@@ -127,5 +128,36 @@ test.describe("when logged in", () => {
     await expect(logoutButton).toBeVisible();
     await logoutButton.click();
     await page.waitForURL("http://localhost:5173/login");
+  });
+});
+
+test.describe("when signing up", () => {
+  test("dupllicate accounts can not be created", async ({ page }) => {
+    await page.goto("http://localhost:5173/signup");
+    const signUpBtn = page.locator('button:has-text("Sign Up")');
+    await expect(signUpBtn).toBeVisible();
+
+    await page.getByTestId("username").locator("input").fill("martha");
+    await page.getByTestId("password").locator("input").fill("111");
+    await signUpBtn.click();
+
+    await expect(
+      page.getByText("Username already exists. Please choose a different one.")
+    ).toBeVisible();
+  });
+
+  test("user can create a new account", async ({ page }) => {
+    await page.goto("http://localhost:5173/signup");
+
+    const signUpBtn = page.locator('button:has-text("Sign Up")');
+    await expect(signUpBtn).toBeVisible();
+
+    await page.getByTestId("username").locator("input").fill("player");
+    await page.getByTestId("password").locator("input").fill("333");
+
+    await signUpBtn.click(); // Increase timeout for URL navigation
+
+    await page.waitForURL("http://localhost:5173/", { timeout: 10000 });
+    await expect(page.getByText("Feeds")).toBeVisible();
   });
 });
