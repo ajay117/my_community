@@ -26,14 +26,17 @@ export const ReplyBox = ({
   };
 
   if (!context) {
-    throw new Error("Please provide a context");
+    return <p>Error: User context is not available.</p>; // Fallback UI
   }
 
   const { user: loggedInUser } = context;
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    console.log("Reply submitted:", reply);
+
+    if (!loggedInUser) {
+      throw new Error("User is not authenticated");
+    }
 
     const mainComment = await getCommentById(commentId);
 

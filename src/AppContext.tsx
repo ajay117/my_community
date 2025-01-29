@@ -4,7 +4,7 @@ import { UserPost } from "./types/PostType";
 
 interface AppContextType {
   user: UserData | null;
-  updateUserData: (userData: UserData) => void;
+  updateUserData: (userData: UserData | null) => void;
   updatePosts: (post: UserPost) => void;
 }
 

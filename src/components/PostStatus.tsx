@@ -18,6 +18,9 @@ export const PostStatus = () => {
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
+    if (!user) {
+      throw new Error("User is not authenticated"); 
+    }
 
     const newPost = {
       userId: user.id,

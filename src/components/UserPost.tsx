@@ -45,6 +45,10 @@ export const UserPost = ({ postData }: UserPostProps) => {
 
   const handleSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
+    if (!loggedInUserData) {
+      throw new Error("User is not authenticated");
+    }
+
     const newComment = {
       userId: loggedInUserData.id,
       comment: comment,

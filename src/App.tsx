@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.scss";
 import { UserData } from "./types/UserType";
 import { UserPost as UserPostInterface } from "./types/PostType";
-// import { PostStatus } from "./components/PostStatus";
-// import { NewsFeed } from "./components/NewsFeed";
 import { AppContext } from "./AppContext";
 import { getAllPosts } from "./services/PostService";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
@@ -13,19 +11,12 @@ import { Login } from "./components/Login";
 import { SignUp } from "./components/SignUp";
 
 function App() {
-  // const [user, setUser] = useState<UserData>({
-  //   id: "1",
-  //   username: "martha",
-  //   postsIdArr: ["100", "4196f4d4-8f67-44d1-a5c7-f2ee586e2735"],
-  //   commentsIdArr: [],
-  // });
   const [user, setUser] = useState<UserData | null>(null);
   const [posts, setPosts] = useState<UserPostInterface[]>([]);
-  const [loading, setLoading] = useState<boolean>(true); // Track loading state for posts
+  const [loading, setLoading] = useState<boolean>(true);
   const navigate = useNavigate();
-  const location = useLocation(); // Get current route
+  const location = useLocation();
 
-  // Redirect to /login only if user is not logged in and not on /signup or /login
   useEffect(() => {
     if (
       !user &&
@@ -36,10 +27,9 @@ function App() {
     }
   }, [user, location.pathname, navigate]);
 
-  // Fetch all posts once user is logged in
   useEffect(() => {
     if (user) {
-      setLoading(true); // Start loading
+      setLoading(true);
       getAllPosts()
         .then((response) => {
           if (response) {
@@ -50,14 +40,13 @@ function App() {
           console.error("Failed to fetch posts:", error);
         })
         .finally(() => {
-          setLoading(false); // Stop loading
+          setLoading(false);
         });
     }
   }, [user]);
 
-  const updateUserData = (userData: UserData) => {
+  const updateUserData = (userData: UserData | null) => {
     setUser(userData);
-    navigate("/");
   };
 
   const updatePosts = (post: UserPostInterface) => {
@@ -76,10 +65,8 @@ function App() {
 
   return (
     <AppContext.Provider value={{ user, updateUserData, updatePosts }}>
-      {/* <BrowserRouter> */}
       <Routes>
         <Route path="/" element={<Home />}>
-          {/* Show Feeds only if user is logged in */}
           <Route
             index
             element={
@@ -98,7 +85,6 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
         </Route>
       </Routes>
-      {/* </BrowserRouter> */}
     </AppContext.Provider>
   );
 }
