@@ -39,6 +39,7 @@ Welcome to **My Community**! This is a social web app where users can sign up, l
   - ESLint
   - Date-fns
   - UUID for generating unique IDs
+  - Playwright (for end-to-end testing)
 
 ## Installation
 
@@ -49,23 +50,28 @@ To get started with **My Community**, follow these steps:
    ```bash
    git clone https://github.com/ajay117/my_community.git
 
+   ```
 
 2. Navigate into the project directory:
 
    ```bash
    cd my_community
 
+   ```
+
 3. Install the dependencies:
 
    ```bash
    npm install
-   
+
+   ```
+
 4. Run the development server:
 
    ```bash
    npm run dev
    ```
-   
+
    This will start the frontend application on http://localhost:5173.
 
 5. To run the fake API server:
@@ -73,13 +79,12 @@ To get started with **My Community**, follow these steps:
    ```bash
    npm run server
    ```
-   
+
    This will start json-server and the API will be available at http://localhost:3000.
 
 ## Available Scripts
 
 In the project directory, you can run the following commands:
-    
 
 <mark style="background-color: #f6f8fa;margin-right: 10px;">**npm run dev**</mark>
 Starts the development server using Vite. The app will be available at http://localhost:5173.
@@ -95,6 +100,12 @@ Runs a preview server for the built production app.
 
 <mark style="background-color: #f6f8fa;margin-right: 10px;">**npm run server**</mark>
 Starts the json-server to mock the backend API on http://localhost:3000.
+
+<mark style="background-color: #f6f8fa;margin-right: 10px;">**npm run test**</mark>
+Runs Playwright tests to ensure the app functions correctly.
+
+<mark style="background-color: #f6f8fa;margin-right: 10px;">**npm run test:report**</mark>
+Shows Playwright test reports.
 
 ## Contributing
 
