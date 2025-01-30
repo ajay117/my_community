@@ -5,10 +5,10 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 
 export const NewsFeed = ({ posts }: { posts: UserPostInterface[] }) => {
-  const renderPosts = posts.map((post) => (
-    <UserPost key={post.id} postData={post} />
-  ));
-
+  const renderPosts = [...posts]
+    .reverse()
+    .map((post) => <UserPost key={post.id} postData={post} />);
+    
   return (
     <>
       {/* <h1>News Feeds</h1> */}

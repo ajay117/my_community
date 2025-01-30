@@ -63,18 +63,14 @@ function App() {
 
   const updatePosts = (post: UserPostInterface) => {
     setPosts((oldUserPosts) => {
-      const postExists = oldUserPosts.some(
-        (olderPost) => olderPost.id === post.id
+      const filteredPosts = oldUserPosts.filter(
+        (olderPost) => olderPost.id !== post.id
       );
-      if (postExists) {
-        return oldUserPosts.map((olderPost) =>
-          olderPost.id === post.id ? post : olderPost
-        );
-      }
-      return [...oldUserPosts, post];
+      return [...filteredPosts, post];
     });
   };
 
+  console.log({ posts });
   return (
     <AppContext.Provider value={{ user, updateUserData, updatePosts }}>
       <Routes>

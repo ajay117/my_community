@@ -2,7 +2,8 @@ import { test, expect } from "@playwright/test";
 import exp from "constants";
 
 // Important: Since we are not resetting the database state,
-//            therefore please manually restart json-server after test
+// therefore, please make sure to erase every change in db.json from Git source control,
+// and please manually restart json-server before every test,
 
 test.describe("when not logged in", () => {
   test("should redirect to login page if not logged in", async ({ page }) => {
@@ -134,7 +135,7 @@ test.describe("when logged in", () => {
 test.describe("when signing up", () => {
   test("dupllicate accounts can not be created", async ({ page }) => {
     await page.goto("http://localhost:5173/signup");
-    const signUpBtn = page.locator('button:has-text("Sign Up")');
+    const signUpBtn = page.locator('button:has-text("SIGN UP")');
     await expect(signUpBtn).toBeVisible();
 
     await page.getByTestId("username").locator("input").fill("martha");
@@ -149,10 +150,10 @@ test.describe("when signing up", () => {
   test("user can create a new account", async ({ page }) => {
     await page.goto("http://localhost:5173/signup");
 
-    const signUpBtn = page.locator('button:has-text("Sign Up")');
+    const signUpBtn = page.locator('button:has-text("SIGN UP")');
     await expect(signUpBtn).toBeVisible();
 
-    await page.getByTestId("username").locator("input").fill("player");
+    await page.getByTestId("username").locator("input").fill("garry");
     await page.getByTestId("password").locator("input").fill("333");
 
     await signUpBtn.click(); // Increase timeout for URL navigation

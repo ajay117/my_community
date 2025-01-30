@@ -83,8 +83,6 @@ export const UserPost = ({ postData }: UserPostProps) => {
     setShowComments(true);
   };
 
-  // console.log({ postData });
-
   const renderComments = postData.commentsIdArr.map((commentId) => {
     return <Comment key={commentId} commentId={commentId} />;
   });
